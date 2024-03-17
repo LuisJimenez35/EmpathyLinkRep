@@ -1,0 +1,9 @@
+{
+  "hosting": [
+    {
+      "target": "empathylink-app",
+      "source": ".",
+      "frameworksBackend": {}
+    }
+  ]
+}

@@ -1,0 +1,50 @@
+@if (errorMessage) {
+  <div>{{ errorMessage }}</div>
+}
+
+  <body>
+    <div class="separator">
+      <hr class="line">
+      <span></span>
+      <hr class="line">
+    </div>
+    <form [formGroup]="form" (ngSubmit)="onSubmit()" class="form_container">
+        <div class="loading">
+            <svg height="48px" width="64px">
+                <polyline id="back" points="0.157 23.954, 14 23.954, 21.843 48, 43 0, 50 24, 64 24"></polyline>
+              <polyline id="front" points="0.157 23.954, 14 23.954, 21.843 48, 43 0, 50 24, 64 24"></polyline>
+              <polyline id="front2" points="0.157 23.954, 14 23.954, 21.843 48, 43 0, 50 24, 64 24"></polyline>
+            </svg>
+        </div>
+        <div class="title_container">
+          <p class="title">Login to your Account</p>
+          <span class="subtitle">Get started with our app, just create an account and enjoy the experience.</span>
+        </div>
+        <br>
+        <div class="input_container">
+          <label class="input_label" for="email_field">Email</label>
+          <input type="email" class="form-control" id="email_field" placeholder="name@example.com" formControlName="email" required="">
+        </div>
+        <div class="input_container">
+          <label class="input_label" for="password_field">Password</label>
+          <input type="password" class="form-control" id="password_field" placeholder="Password" autocomplete="off" formControlName="password" required="">
+        </div>
+        <button title="Sign In" class="sign-in_btn" type="submit">Sign In</button>
+        <div class="separator">
+          <hr class="line">
+          <span>Or</span>
+          <hr class="line">
+        </div>
+        <figure class="text-center">
+            <blockquote class="blockquote">
+              <p class="mb-0">You still don't have an account created with us?</p>
+            
+            </blockquote>
+            <figcaption class="blockquote-footer">
+            Join us by creating new one <cite title="Source Title">Empathy Link</cite>
+            </figcaption>
+          </figure>
+          <a title="Register" class="sign-in_ggl" href="/register">Register</a>
+        <p class="note">Terms of use &amp; Conditions</p>
+      </form>
+  </body>

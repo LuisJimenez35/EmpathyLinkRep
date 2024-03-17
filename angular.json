@@ -25,6 +25,8 @@
               "src/assets"
             ],
             "styles": [
+              "node_modules/bootstrap/dist/css/bootstrap.min.css",
+              "node_modules/bootswatch/dist/yeti/bootstrap.min.css",
               "src/styles.css"
             ],
             "scripts": []
@@ -88,6 +90,23 @@
             ],
             "scripts": []
           }
+        },
+        "deploy": {
+          "builder": "@angular/fire:deploy",
+          "options": {
+            "version": 2
+          },
+          "configurations": {
+            "production": {
+              "buildTarget": "empathylink-app:build:production",
+              "serveTarget": "empathylink-app:serve:production"
+            },
+            "development": {
+              "buildTarget": "empathylink-app:build:development",
+              "serveTarget": "empathylink-app:serve:development"
+            }
+          },
+          "defaultConfiguration": "production"
         }
       }
     }

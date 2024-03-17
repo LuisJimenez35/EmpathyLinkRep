@@ -1,0 +1,14 @@
+{
+  "targets": {
+    "empathylinkdb1-0": {
+      "hosting": {
+        "empathylink-app": [
+          "empathylinkdb1-0"
+        ]
+      }
+    }
+  },
+  "projects": {
+    "default": "empathylinkdb1-0"
+  }
+}
