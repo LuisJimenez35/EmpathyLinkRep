@@ -20,10 +20,11 @@ export class LogicComponent {
   authService = inject(AuthService);
 
   form = this.fb.nonNullable.group({
-    email: ['', Validators.required],
-    password: ['', Validators.required],
+    email: ['prueba@gmail.com', Validators.required],
+    password: ['$123456', Validators.required],
   });
   errorMessage: string | null = null;
+
 
   constructor(private modalService: NgbModal) {} // Inyecta NgbModal en el constructor
 
