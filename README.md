@@ -16,7 +16,7 @@ Empathy Link " is an online platform that offers accessible and personalized psy
 4.  Ensure Security and Privacy: Implement robust security and privacy measures to protect users' confidential information and maintain trust in the platform.
 5.  Collect Feedback and Continuous Improvement: Establish feedback channels for users to express their opinions and suggestions, which will allow us to constantly improve the quality and efficiency of the services offered.
 
-## 📝Requirements for the CondominiumApp
+## 📝Requirements for the Empathy Link
 ```
 1.  Therefore, as mentioned above, the root user can:
 2.  Users must be able to register on the platform by providing basic information.
