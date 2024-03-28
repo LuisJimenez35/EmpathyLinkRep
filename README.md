@@ -41,3 +41,14 @@ Empathy Link " is an online platform that offers accessible and personalized psy
 - FireBase
 - HTML5
 - CSS3
+
+❓How to run the app?
+```
+1.  Open the project in an IDE that recognizes TS and Angular.
+2.  Have Node JS installed on the machine(Node.js - Download Node.js® (nodejs.org))
+3.  Access the IDE console and use the commands to install npm and Angular:
+      npm i npm@9.3.1
+      npm i @angular/cli@17.1.2
+4.  Use the following command to run the project
+      ng serve
+```
