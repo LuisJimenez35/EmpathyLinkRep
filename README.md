@@ -1,9 +1,7 @@
 # ⚕️Empathy Link
 
 ## ⚠️Situation:
-According to data from elmundo.cr, condominiums in Costa Rica have increased almost 600% since 1990.
-https://elmundo.cr/costa-rica/desde-1990-construccion-de-condominios-y-apartamentos-en-la-gam-aumento-casi-un-600/
-This has produced an immense need for applications and services that help the companies that manage these housing projects.
+Given that nowadays the employability in the area of psychology has decreased considerably, many people who have studied this career have not found a stable job in the country and therefore at a certain point these people need the same help it provides for the reason of unemployment in this area and on the other hand people who need this help do not get it because either it is too expensive and can not afford to pay that expense or by the public services of the country regarding psychology are not the most efficient.
 
 ## 💬Introduction:
 The idea is to develop an application that offers an online service for appointments with specialists in the field of psychology from the comfort and place of the patient.
