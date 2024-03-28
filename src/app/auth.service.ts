@@ -18,10 +18,6 @@ export class AuthService {
   user$ = user(this.firebaseAuth);
   currentUserSig = signal<UserInterface | null | undefined>(undefined);
 
-  /* Este código supone que el objeto de usuario 
-    tiene una propiedad displayName, 
-    lo que no siempre es así. */
-    
   register(
     email: string,
     username: string,
