@@ -1,13 +1,19 @@
 <div class="container">
-
     <h1>Lista de Usuarios</h1>
 
-    <ul>
+    <!-- <ul>
         <li *ngFor="let user of $users; trackBy: trackByFn">
-            {{ user.name}}
+            {{ user.name }}
         </li>
-    </ul>
-
+    </ul> -->
+    <!-- <ul>
+        @for (user of $users; track user.id) {
+        <li>{{ user }}.</li>
+        {{
+            user.name
+        }}
+        } @empty { Empty list of users }
+    </ul> -->
     <!--    
     <h1>Bienvenido</h1>
 
@@ -23,10 +29,6 @@
         }
 -->
 
-
-
-
-
     <!--            
     <div *ngIf="users.length > 0; else noUsers">
       <ul>
@@ -40,3 +42,4 @@
     </ng-template>
   </div>
    -->
+</div>

@@ -1,7 +1,13 @@
 import { Injectable, inject } from '@angular/core';
-import { Firestore, addDoc, collection, onSnapshot, query, where } from '@angular/fire/firestore';
+import {
+    DocumentReference,
+    Firestore,
+    collection,
+    collectionData,
+    doc,
+} from '@angular/fire/firestore';
 import { Observable, map } from 'rxjs';
-import {infoUsuarios}from'../models/infoUsuarios.interface'
+import { infoUsuarios } from '../models/infoUsuarios.interface';
 
 @Injectable({
     providedIn: 'root',
@@ -10,19 +16,20 @@ export class FavoritesService {
     private firestore: Firestore = inject(Firestore);
     private infoUsuarioCollection = collection(this.firestore, 'infoUsuarios');
 
-   
-   /* getFavorites(userId: string): Observable<infoUsuarios[]> {
-       this.infoUsuarioCollection.
+    doc: DocumentReference;
+    //users$: infoUsuarios[];
+
+    constructor() {
+        // get a reference to the user-profile collection
+        const userProfileCollection = collection(this.firestore, 'users');
+        this.doc = doc(this.firestore, 'foo/1');
     }
 
-    getFavorites(userId: string): Observable<infoUsuarios[]> {
+    /* getFavorites(userId: string): Observable<infoUsuarios[]> {
         this.item$ = collectionData(itemCollection);
-     }
-    */
+     } */
 
-
-
-   /* getFavorites(userId: string): Observable<FavoriteRestaurant[]> {
+    /* getFavorites(userId: string): Observable<FavoriteRestaurant[]> {
         let q = query(this.favoriteRestaurantCollection, where('userId', '==', userId));
         return new Observable<FavoriteRestaurant[]>((observer) => {
             const unsubscribe = onSnapshot(q, (querySnapshot) => {
