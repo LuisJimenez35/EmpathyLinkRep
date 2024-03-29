@@ -7,7 +7,7 @@ import {
     doc,
 } from '@angular/fire/firestore';
 import { Observable, map } from 'rxjs';
-import { infoUsuarios } from '../models/infoUsuarios.interface';
+import { infoUsuarios } from '../../../models/infoUsuarios.interface';
 
 @Injectable({
     providedIn: 'root',
@@ -20,8 +20,6 @@ export class FavoritesService {
     //users$: infoUsuarios[];
 
     constructor() {
-        // get a reference to the user-profile collection
-        const userProfileCollection = collection(this.firestore, 'users');
         this.doc = doc(this.firestore, 'foo/1');
     }
 

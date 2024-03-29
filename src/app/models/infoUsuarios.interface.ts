@@ -1,7 +1,4 @@
 export interface infoUsuarios {
-    Address: string;
+    address: string;
     cellphone: string;
-    email: string;
-    password: string;
-    user: string;
 }

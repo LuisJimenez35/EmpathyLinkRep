@@ -2,41 +2,44 @@ import { HttpClient } from '@angular/common/http';
 import { Component, inject } from '@angular/core';
 import { FormBuilder, ReactiveFormsModule, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
+import { AuthService } from '../../services/Firebase/Auth/auth.service';
 import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
-import { ErrorModalComponent } from '../error-modal/error-modal.component';
-import { AuthService } from '../auth.service';
+import { ErrorModalComponent } from '../../shared/components/error-modal/error-modal.component';
+// Importa el componente de modal de error
 
 @Component({
-    selector: 'app-login',
-    templateUrl: './login.component.html',
-    styleUrl: './login.component.css',
+    selector: 'app-register',
+    templateUrl: './register.component.html',
     standalone: true,
     imports: [ReactiveFormsModule],
+    styleUrl: './register.component.css',
 })
-export class LogicComponent {
+export class RegisterComponent {
     fb = inject(FormBuilder);
     http = inject(HttpClient);
-    router = inject(Router);
     authService = inject(AuthService);
+    router = inject(Router);
 
     form = this.fb.nonNullable.group({
-        email: ['prueba@gmail.com', Validators.required],
-        password: ['$123456', Validators.required],
+        username: ['', Validators.required],
+        email: ['', Validators.required],
+        password: ['', Validators.required],
     });
-    errorMessage: string | null = null;
 
     constructor(private modalService: NgbModal) {} // Inyecta NgbModal en el constructor
 
     onSubmit(): void {
         const rawForm = this.form.getRawValue();
-        this.authService.login(rawForm.email, rawForm.password).subscribe({
-            next: () => {
-                this.router.navigateByUrl('/welcome');
-            },
-            error: (err) => {
-                this.openErrorModal(err.code); // Abre el modal de error
-            },
-        });
+        this.authService
+            .register(rawForm.email, rawForm.username, rawForm.password)
+            .subscribe({
+                next: () => {
+                    this.router.navigateByUrl('/login');
+                },
+                error: (err) => {
+                    this.openErrorModal(err.code); // Abre el modal de error
+                },
+            });
     }
 
     openErrorModal(errorMessage: string): void {

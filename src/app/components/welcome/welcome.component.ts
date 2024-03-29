@@ -1,6 +1,6 @@
 import { Component, OnInit,inject } from '@angular/core';
 import { Firestore, collection, collectionData} from '@angular/fire/firestore';
-import { infoUsuarios } from '../models/infoUsuarios.interface';
+import { infoUsuarios } from '../../models/infoUsuarios.interface';
 import { Observable} from 'rxjs';
 
 // import { AngularFirestore } from '@angular/fire/firestore'; // Importa AngularFirestore para interactuar con Firestore
