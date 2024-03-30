@@ -8,8 +8,12 @@
     ></button>
 </div>
 <div class="modal-body">
-    
-    <p>Hello, {{ userInfo?.email }}!</p>
+    <div class="text-center">
+        <h5 class="d-block">{{ user?.fullName }}</h5>
+        <h5 class="d-block">{{ user?.email }}</h5>
+        <h5 class="d-block">{{ user?.address }}</h5>
+        <h5 class="d-block">{{ user?.cellphone }}</h5>
+    </div>
 </div>
 
 <div class="modal-footer">

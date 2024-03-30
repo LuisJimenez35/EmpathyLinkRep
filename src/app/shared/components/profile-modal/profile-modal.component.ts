@@ -12,5 +12,9 @@ import { UserInterface } from '../../../models/user.interface';
 export class ProfileModalComponent {
     activeModal = inject(NgbActiveModal);
 
-    @Input() userInfo: UserInterface | undefined;
+    @Input() user: UserInterface | undefined;
+
+    constructor() {
+        console.log(this.user);
+    }
 }
