@@ -15,22 +15,22 @@
         <div class="collapse navbar-collapse" id="navbarColor02">
             <ul class="navbar-nav me-auto">
                 <li class="nav-item"></li>
-                @if (!userData) {
+                @if (userData === null) {
                 <li class="nav-item">
                     <a class="nav-link" routerLink="/login">Login</a>
                 </li>
                 <li class="nav-item">
                     <a class="nav-link" routerLink="/register">Register</a>
                 </li>
-                } @if (userData) {
+                } @if (userData !== null) {
                 <li class="nav-item">
-                    <a class="nav-link" (click)="logout()" routerLink="/login"
+                    <a class="nav-link" (click)="logout()"
                         >Logout</a
                     >
                 </li>
                 }
             </ul>
-            @if (userData) {
+            @if (userData !== null) {
             <ul class="navbar-nav ms-auto">
                 <!-- Burbúja perfil usuario -->
                 <li class="nav-item">

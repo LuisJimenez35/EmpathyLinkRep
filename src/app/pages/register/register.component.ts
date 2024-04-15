@@ -36,7 +36,6 @@ export class RegisterComponent {
 
     onSubmit(): void {
         const rawForm = this.form.getRawValue();
-        console.log(rawForm);
         this.authService
             .register(rawForm.email, rawForm.username, rawForm.password)
             .subscribe({

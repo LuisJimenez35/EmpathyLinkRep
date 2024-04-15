@@ -55,8 +55,14 @@ export class NavbarComponent {
     }
 
     logout(): void {
-        this.router.navigateByUrl('/login');
-        this.authService.logout();
+        this.authService.logout().subscribe({
+            next: (value) => {
+                this.userData = null;
+                this.router.navigateByUrl('/login').then(() => {
+                    window.location.reload();
+                });
+            },
+        });
     }
 
     openUserProfileModal(): void {
