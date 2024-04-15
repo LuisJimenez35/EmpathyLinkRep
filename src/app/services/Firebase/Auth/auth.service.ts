@@ -22,14 +22,16 @@ export class AuthService {
         email: string,
         username: string,
         password: string
-    ): Observable<void> {
+    ): Observable<any> {
         const promise = createUserWithEmailAndPassword(
             this.firebaseAuth,
             email,
             password
-        ).then((response) =>
-            updateProfile(response.user, { displayName: username })
-        );
+        ).then((response: any) => {
+            return updateProfile(response.user, { displayName: username }).then(
+                () => response.user.uid
+            );
+        });
 
         return from(promise);
     }

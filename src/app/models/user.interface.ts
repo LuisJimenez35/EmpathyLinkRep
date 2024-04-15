@@ -1,13 +1,14 @@
 export interface AuthUserInterface {
     id: string;
     email: string;
-    username: string;
+    username?: string;
 }
 
 export interface UserInfoInterface {
-    address: string;
-    cellphone: string;
-    fullName: string;
+    address?: string;
+    cellphone?: string;
+    fullName?: string;
+    role?: string;
 }
 
 // Intefaz que une todas las propiedades

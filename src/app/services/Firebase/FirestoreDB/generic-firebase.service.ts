@@ -8,6 +8,7 @@ import {
     DocumentSnapshot,
     doc,
     docData,
+    setDoc,
 } from '@angular/fire/firestore';
 import { Observable } from 'rxjs';
 
@@ -24,12 +25,28 @@ export class GenericFirebaseService {
     }
 
     GetOneDocument(collectionName: string, documentId: any) {
-        let documentRef = doc(this.firestore, collectionName +"/"+documentId);
+        let documentRef = doc(
+            this.firestore,
+            collectionName + '/' + documentId
+        );
         return docData(documentRef);
     }
 
-    AddDocument(collectionName: string, data: any) {
-        const collectionRef = collection(this.firestore, collectionName);
+    AddDocument(collectionName: string, documentId: string, data: any) {
+        const docRef = doc(this.firestore, collectionName, documentId);
+
+        return setDoc(docRef, data)
+            .then(() => {
+                // El documento se ha creado correctamente
+                return documentId; // Devolvemos el ID del documento creado
+            })
+            .catch((err) => {
+                // Manejar cualquier error
+                throw err;
+            });
+    }
+
+    /* const collectionRef = collection(this.firestore, collectionName);
 
         addDoc(collectionRef, <any>{ data })
             .then((documentReference: DocumentReference) => {
@@ -38,8 +55,7 @@ export class GenericFirebaseService {
             })
             .catch((err) => {
                 return err;
-            });
-    }
+            }); */
 
     UpdateDocument(collectionName: string, documentId: any, data: any) {
         const collectionRef = collection(this.firestore, collectionName);
