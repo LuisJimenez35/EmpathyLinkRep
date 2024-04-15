@@ -4,7 +4,8 @@ import { Router, RouterLink, RouterOutlet } from '@angular/router';
 import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
 import { ProfileModalComponent } from '../profile-modal/profile-modal.component';
 import { GenericFirebaseService } from '../../../services/Firebase/FirestoreDB/generic-firebase.service';
-import { Observable } from 'rxjs';
+import { Observable, of, switchMap } from 'rxjs';
+import { UserInterface } from '../../../models/user.interface';
 
 @Component({
     selector: 'app-navbar',
@@ -19,17 +20,37 @@ export class NavbarComponent {
     router = inject(Router);
     genericService = inject(GenericFirebaseService);
 
-    data: any[] | undefined;
+    userData: UserInterface | null = null;
 
     ngOnInit(): void {
         this.authService.user$.subscribe((user) => {
             if (user) {
-                this.authService.currentUserSig.set({
-                    id: user.uid,
-                    email: user.email!,
-                    username: user.displayName!,
-                });
-            } else this.authService.currentUserSig.set(null);
+                this.genericService
+                    .GetOneDocument('infoUsuarios', user.uid)
+                    .subscribe((res: any) => {
+                        if (res) {
+                            this.userData = {
+                                id: user.uid,
+                                email: user.email!,
+                                username: user.displayName!,
+                                address: res.address,
+                                cellphone: res.cellphone,
+                                fullName: res.fullName,
+                            };
+                        } else {
+                            this.userData = {
+                                id: user.uid,
+                                email: user.email!,
+                                username: user.displayName!,
+                                address: '',
+                                cellphone: '',
+                                fullName: '',
+                            };
+                        }
+                    });
+            } else {
+                this.userData = null;
+            }
         });
     }
 
@@ -43,20 +64,6 @@ export class NavbarComponent {
             size: 'sm',
         });
 
-        this.genericService
-            .GetOneDocument(
-                'infoUsuarios',
-                this.authService.currentUserSig()?.id
-            )
-            .subscribe({
-                next: (res) => {
-                    let user = {
-                        ...this.authService.currentUserSig(),
-                        ...res,
-                    };
-
-                    modalRef.componentInstance.user = user;
-                },
-            });
+        modalRef.componentInstance.user = this.userData;
     }
 }
