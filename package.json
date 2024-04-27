@@ -23,14 +23,14 @@
     "@popperjs/core": "^2.11.8",
     "bootstrap": "^5.3.3",
     "bootswatch": "^5.3.3",
-    "npm": "^9.3.1",
+    "npm": "^10.6.0",
     "rxjs": "~7.8.0",
     "tslib": "^2.3.0",
     "zone.js": "~0.14.3"
   },
   "devDependencies": {
     "@angular-devkit/build-angular": "^17.1.2",
-    "@angular/cli": "^17.1.2",
+    "@angular/cli": "^17.3.6",
     "@angular/compiler-cli": "^17.1.0",
     "@angular/localize": "^17.1.0",
     "@types/jasmine": "~5.1.0",
