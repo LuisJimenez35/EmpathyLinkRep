@@ -1,4 +1,3 @@
-@if (authService.currentUserSig()) {
 <mat-drawer-container class="example-container" autosize>
     <mat-drawer #drawer class="example-sidenav" mode="side">
         <div class="sidenav-content">
@@ -70,18 +69,5 @@
               </div>
             </div>
           </div>
-          
     </div>
 </mat-drawer-container>
-}
-@if (authService.currentUserSig() == null) {
-  <div class="center-div card border-primary mx-auto mb-3" style="max-width: 20rem;">
-    <div class="card-body">
-        <h4 class="card-title">Error</h4>
-        <p class="card-text">Para acceder a esta información debes iniciar sesión o registrarte una cuenta.</p>
-        <a href="/login" class="btn btn-primary">Iniciar Sesión</a>
-        <div style="height: 10px;"></div> <!-- Espacio entre los botones -->
-        <a  href="/register" class="btn btn-info">Crear Cuenta</a>
-    </div>
-</div>
-}

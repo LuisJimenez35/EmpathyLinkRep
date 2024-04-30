@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { FormsModule } from '@angular/forms';
 
 @Component({
   selector: 'app-health',
@@ -7,6 +8,10 @@ import { Component } from '@angular/core';
   templateUrl: './health.component.html',
   styleUrl: './health.component.css'
 })
-export class HealthComponent {
 
+
+
+export class HealthComponent {
+  nombre: string = '';
+  
 }

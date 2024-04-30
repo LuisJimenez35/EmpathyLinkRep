@@ -3,7 +3,8 @@ import { MatSlideToggleModule } from '@angular/material/slide-toggle';
 import {MatButtonModule} from '@angular/material/button';
 import {MatSidenavModule} from '@angular/material/sidenav';
 import { AuthService } from '../../services/Firebase/Auth/auth.service';
-
+import { UserInterface } from '../../models/user.interface';
+import {Router} from '@angular/router';
 
 @Component({
     selector: 'app-welcome',
@@ -15,5 +16,12 @@ import { AuthService } from '../../services/Firebase/Auth/auth.service';
 
 export class WelcomeComponent /*implements OnInit*/ {
     showFiller = false;
-    authService = inject(AuthService)
+    AuthUserService = inject(AuthService)
+    router = inject(Router);
+
+    @Input() user: UserInterface | undefined;
+
+    constructor() {
+        console.log(this.user);
+    }
 }
