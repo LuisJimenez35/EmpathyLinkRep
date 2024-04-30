@@ -1,3 +1,87 @@
-<div class="container">
-    <h1>Bienvenido</h1>
+@if (authService.currentUserSig()) {
+<mat-drawer-container class="example-container" autosize>
+    <mat-drawer #drawer class="example-sidenav" mode="side">
+        <div class="sidenav-content">
+            <h3>Menú</h3>
+            <ul class="menu-list">
+                <li><a href="#">Inicio</a></li>
+                <li><a href="#">Mis Sesiones</a></li>
+                <li><a href="#">Buscar Psicólogos</a></li>
+                <li><a href="#">Configuración</a></li>
+            </ul>
+        </div>
+        <div class="return-home">
+            <a href="#"> Volver a Inicio <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16"
+                    fill="currentColor" class="bi bi-box-arrow-right" viewBox="0 0 16 16">
+                    <path fill-rule="evenodd"
+                        d="M10 12.5a.5.5 0 0 1-.5.5h-8a.5.5 0 0 1-.5-.5v-9a.5.5 0 0 1 .5-.5h8a.5.5 0 0 1 .5.5v2a.5.5 0 0 0 1 0v-2A1.5 1.5 0 0 0 9.5 2h-8A1.5 1.5 0 0 0 0 3.5v9A1.5 1.5 0 0 0 1.5 14h8a1.5 1.5 0 0 0 1.5-1.5v-2a.5.5 0 0 0-1 0z" />
+                    <path fill-rule="evenodd"
+                        d="M15.854 8.354a.5.5 0 0 0 0-.708l-3-3a.5.5 0 0 0-.708.708L14.293 7.5H5.5a.5.5 0 0 0 0 1h8.793l-2.147 2.146a.5.5 0 0 0 .708.708z" />
+                </svg></a>
+        </div>
+    </mat-drawer>
+
+    <div class="example-sidenav-content">
+        <button mat-button (click)="drawer.toggle()" class="toggle-button">
+            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-caret-right"
+                viewBox="0 0 16 16">
+                <path
+                    d="M6 12.796V3.204L11.481 8zm.659.753 5.48-4.796a1 1 0 0 0 0-1.506L6.66 2.451C6.011 1.885 5 2.345 5 3.204v9.592a1 1 0 0 0 1.659.753" />
+            </svg>
+        </button>
+    </div>
+    <!-- (menú principal) -->
+    <div class="container">
+        <div class="card border-info mb-3" style="max-width: 20rem;">
+            <div class="card-header">Roles</div>
+            <div class="card-body">
+                <h4 class="card-title">Agregar Nuevo Rol</h4>
+                <p class="card-text">Aquí puedes agregar un nuevo rol para los usuarios</p>
+            </div>
+            <ul class="list-group list-group-flush">
+                <a type="button" class="btn btn-primary">Agregar</a>
+            </ul>
+        </div>
+        <div class="card bg-light mb-3" style="max-width: 20rem;">
+            <div class="card mb-3">
+              <h3 class="card-header">Datos Médicos</h3>
+              <div class="card-body">
+                <h5 class="card-title">Crea y administra los datos médicos de tus pacientes</h5>
+              </div>
+              <ul class="list-group list-group-flush">
+                <li class="list-group-item">Aquí puedes agregar y actualizar la información médica de cada paciente.</li>
+              </ul>
+              <div class="card-body">
+                <a type="button" href="/health" class="btn btn-primary">Agregar datos</a>
+              </div>
+            </div>
+          </div>
+          <div class="card bg-light mb-3" style="max-width: 20rem;">
+            <div class="card mb-3">
+              <h3 class="card-header">Nueva Sala</h3>
+              <div class="card-body">
+                <h5 class="card-title">Crea una nueva sala de reuniones</h5>
+              </div>
+              <ul class="list-group list-group-flush">
+                <li class="list-group-item">Aquí puedes crear una nueva sala para tus reuniones.</li>
+              </ul>
+              <div class="card-body">
+                <a type="button" class="btn btn-primary">Crear sala</a>
+              </div>
+            </div>
+          </div>
+          
+    </div>
+</mat-drawer-container>
+}
+@if (authService.currentUserSig() == null) {
+  <div class="center-div card border-primary mx-auto mb-3" style="max-width: 20rem;">
+    <div class="card-body">
+        <h4 class="card-title">Error</h4>
+        <p class="card-text">Para acceder a esta información debes iniciar sesión o registrarte una cuenta.</p>
+        <a href="/login" class="btn btn-primary">Iniciar Sesión</a>
+        <div style="height: 10px;"></div> <!-- Espacio entre los botones -->
+        <a  href="/register" class="btn btn-info">Crear Cuenta</a>
+    </div>
 </div>
+}

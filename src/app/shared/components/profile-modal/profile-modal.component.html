@@ -1,27 +1,44 @@
-<div class="modal-header">
-    <!-- <h4 class="modal-title">Hi there!</h4> -->
-    <button
-        type="button"
-        class="btn-close"
-        aria-label="Close"
-        (click)="activeModal.dismiss('Cross click')"
-    ></button>
-</div>
-<div class="modal-body">
-    <div class="text-center">
-        <h5 class="d-block">{{ user?.fullName }}</h5>
-        <h5 class="d-block">{{ user?.email }}</h5>
-        <h5 class="d-block">{{ user?.address }}</h5>
-        <h5 class="d-block">{{ user?.cellphone }}</h5>
+<div class="fondo">
+    <div class="principal">
+        <div class="modal-header">
+            <!-- <h4 class="modal-title">Hi there!</h4> -->
+            <button
+                type="button"
+                class="btn-close"
+                aria-label="Close"
+                (click)="activeModal.dismiss('Cross click')"
+            ></button>
+        </div>
+        <div class="card" style="max-width: 20rem;">
+            <div class="text-center">
+                <div class="modal-header">
+                    <h5 class="d-block">{{ user?.fullName }}</h5>
+                </div>
+                <div class="modal-header">
+                    <h5 class="d-block">{{ user?.email }}</h5>
+                </div>
+            </div>
+        </div>
+        <a>Número de teléfono</a>
+        <div class="card" style="max-width: 20rem;">
+            <div class="text-center">
+                <h5 class="d-block">{{ user?.cellphone }}</h5>
+            </div>
+        </div>
+        <a>Ubicación</a>
+        <div class="card bg-light mb-3" style="max-width: 20rem;">
+            <div class="text-center">
+                <h5 class="d-block">{{ user?.address }}</h5>
+            </div>
+        </div>
+        <div class="modal-footer">
+            <button
+                type="button"
+                class="btn btn-outline-dark"
+                (click)="activeModal.close('Close click')"
+            >
+                Close
+            </button>
+        </div>
     </div>
-</div>
-
-<div class="modal-footer">
-    <button
-        type="button"
-        class="btn btn-outline-dark"
-        (click)="activeModal.close('Close click')"
-    >
-        Close
-    </button>
 </div>
