@@ -1,0 +1,33 @@
+<div class="container">
+    <div class="sidebar">
+        <h2>Chats y Usuarios</h2>
+        <!-- Lista de chats y usuarios -->
+        <ul>
+            <li *ngFor="let message of messages">
+                <strong *ngIf="message.type === 'outgoing'">Tú:</strong>
+                <strong *ngIf="message.type === 'incoming'">Usuario:</strong>
+                {{ message.text }}
+            </li>
+        </ul>
+
+        <!-- Búsqueda -->
+        <input type="text" placeholder="Buscar..." formControlName="searchTerm">
+    </div>
+
+    <div class="chat">
+        <div class="chat-header">
+            <h2>Chat 1</h2>
+        </div>
+        <!-- Conversación -->
+        <div class="chat-messages" id="chat-messages">
+            <div class="message" *ngFor="let message of messages" [class.outgoing]="message.type === 'outgoing'"
+                [class.incoming]="message.type === 'incoming'">
+                {{ message.text }}
+            </div>
+        </div>
+
+        <!-- Input para enviar mensajes -->
+        <textarea formControlName="message" placeholder="Escribe un mensaje..." required></textarea>
+        <button (click)="sendMessage()">Enviar</button>
+    </div>
+</div>
